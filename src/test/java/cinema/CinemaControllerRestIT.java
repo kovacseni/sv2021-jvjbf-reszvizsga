@@ -11,7 +11,6 @@ import org.zalando.problem.Problem;
 import org.zalando.problem.Status;
 
 import java.net.URI;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -29,8 +28,7 @@ public class CinemaControllerRestIT {
         template.delete("/api/cinema");
     }
 
-
- /*   @Test
+    @Test
     void testAddNewMovie() {
 
         MovieDTO result =
@@ -156,15 +154,15 @@ public class CinemaControllerRestIT {
     }
 
     @Test
-    void notFoundMovieTest(){
+    void notFoundMovieTest() {
         Problem result = template.getForObject("/api/cinema/1", Problem.class);
 
-        assertEquals(URI.create("cinema/not-found"),result.getType());
+        assertEquals(URI.create("cinema/not-found"), result.getType());
         assertEquals(Status.NOT_FOUND, result.getStatus());
     }
 
     @Test
-    void updateWithInvalidNumberOfSeats(){
+    void updateWithInvalidNumberOfSeats() {
         template.postForObject("/api/cinema",
                 new CreateMovieCommand("Titanic", LocalDateTime.of(2021, 6, 30, 12, 30), 120),
                 MovieDTO.class);
@@ -172,7 +170,7 @@ public class CinemaControllerRestIT {
         Problem result = template.postForObject("/api/cinema/1/reserve", new CreateReservationCommand(121), Problem.class);
 
 
-        assertEquals(URI.create("cinema/bad-reservation"),result.getType());
+        assertEquals(URI.create("cinema/bad-reservation"), result.getType());
         assertEquals(Status.BAD_REQUEST, result.getStatus());
-    }*/
+    }
 }
